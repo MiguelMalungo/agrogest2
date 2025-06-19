@@ -3,10 +3,12 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { VitePWA } from 'vite-plugin-pwa'
 
+// Base URL for GitHub Pages
 const isProd = process.env.NODE_ENV === 'production';
+const base = process.env.VITE_BASE_URL || (isProd ? '/agrogest2/' : '/')
 
 export default defineConfig({
-  base: isProd ? '/agrogest2/' : '/',
+  base,
   plugins: [
     react(),
     VitePWA({
