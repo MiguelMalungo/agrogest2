@@ -1,12 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src={`${import.meta.env.BASE_URL || '/'}images/farm.mp4`}
+        src={`${import.meta.env.BASE_URL || ''}images/farm.mp4`}
         autoPlay
         loop
         muted
@@ -19,7 +21,7 @@ const LandingPage: React.FC = () => {
         {/* Logo */}
         <div className="mb-8 w-full flex justify-center">
           <img 
-            src={`${import.meta.env.BASE_URL || '/'}logo.png`} 
+            src={`${import.meta.env.BASE_URL || ''}logo.png`} 
             alt="AgroGest Logo" 
             className="h-20 md:h-28 w-auto object-contain"
           />
@@ -29,7 +31,7 @@ const LandingPage: React.FC = () => {
         </h1>
         <div className="w-full md:w-auto">
           <button
-            onClick={() => window.location.href = '/hoje'}
+            onClick={() => navigate('/hoje')}
             className="mt-10 px-8 py-4 md:px-12 md:py-6 bg-[#F5A926] text-white text-2xl md:text-4xl font-bold rounded-full shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-[#F5A926]/50 focus:ring-offset-2 w-auto max-w-full hover:bg-white hover:text-black whitespace-nowrap"
             aria-label="Entrar no gestor agrícola"
           >
