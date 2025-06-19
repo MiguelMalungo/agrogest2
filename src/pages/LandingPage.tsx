@@ -6,7 +6,7 @@ const LandingPage: React.FC = () => {
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src={`${import.meta.env.BASE_URL}images/farm.mp4`}
+        src={`${import.meta.env.BASE_URL || '/'}images/farm.mp4`}
         autoPlay
         loop
         muted
