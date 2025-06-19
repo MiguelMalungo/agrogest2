@@ -4,12 +4,10 @@ import TabBar from './TabBar'
 import Header from './Header'
 import { cn } from '@/lib/utils'
 import { Bot } from 'lucide-react'
+import { VoiceButton } from '@/components/ui/VoiceButton'
+import { Toaster } from '@/components/ui/toaster'
 
-interface AppLayoutProps {
-  children?: React.ReactNode
-}
-
-export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+export const AppLayout: React.FC = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Fundo fixo de campos de milho */}
@@ -33,7 +31,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         {/* Main content area */}
         <main className="flex-1 pt-20 pb-24 px-4 overflow-y-auto">
           <div className="w-full md:max-w-[70%] mx-auto">
-            {children || <Outlet />}
+            <Outlet />
           </div>
         </main>
         
@@ -48,6 +46,11 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         >
           <Bot className="h-7 w-7 text-white" />
         </button>
+        {/* Botões flutuantes para voz e câmera */}
+        {/* Sistema de notificações toast */}
+        {/* These are now always present on app pages */}
+        <VoiceButton />
+        <Toaster />
       </div>
     </div>
   )
