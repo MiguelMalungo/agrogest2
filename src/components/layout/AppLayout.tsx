@@ -16,7 +16,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/cornfield-background-blur.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}images/cornfield-background-blur.jpg)`, 
           backgroundAttachment: 'fixed',
           backgroundSize: 'cover'
         }}

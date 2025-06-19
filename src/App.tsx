@@ -5,6 +5,7 @@ import { useInitialData } from '@/hooks/useInitialData'
 import { useSyncData } from '@/hooks/useSyncData'
 import AppLayout from '@/components/layout/AppLayout'
 import HojePage from '@/pages/HojePage'
+import LandingPage from '@/pages/LandingPage'
 import AtividadesPage from '@/pages/AtividadesPage'
 import InventarioPage from '@/pages/InventarioPage'
 import DashboardPage from '@/pages/DashboardPage'
@@ -57,25 +58,22 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <AppLayout>
-          <Routes>
-            <Route path="/" element={<Navigate to="/hoje" replace />} />
-            <Route path="/hoje" element={<HojePage />} />
-            <Route path="/atividades" element={<AtividadesPage />} />
-            <Route path="/inventario" element={<InventarioPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/definicoes" element={<DefinicoesPage />} />
-          </Routes>
-          
-          {/* Botões flutuantes para voz e câmera */}
-          <VoiceButton />
-          
-          
-          {/* Sistema de notificações toast */}
-          <Toaster />
-        </AppLayout>
-      </div>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="*" element={
+          <AppLayout>
+            <Routes>
+              <Route path="/hoje" element={<HojePage />} />
+              <Route path="/atividades" element={<AtividadesPage />} />
+              <Route path="/inventario" element={<InventarioPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/definicoes" element={<DefinicoesPage />} />
+            </Routes>
+            <VoiceButton />
+            <Toaster />
+          </AppLayout>
+        } />
+      </Routes>
     </Router>
   )
 }

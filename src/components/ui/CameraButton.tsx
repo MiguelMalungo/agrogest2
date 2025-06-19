@@ -45,7 +45,7 @@ export const CameraButton: React.FC<CameraButtonProps> = ({ className }) => {
     míldio: {
       type: 'míldio',
       confidence: 0.87,
-      description: 'Míldio do milho (Peronosclerospora sorghi). Manchas cloróticas e crescimento branco na parte inferior das folhas.',
+      description: `Míldio do milho (Peronosclerospora sorghi). Manchas cloróticas e crescimento branco na parte inferior das folhas. <img src="${import.meta.env.BASE_URL}logo.png" />`,
       recommendations: [
         'Aplicar fungicida específico para oomicetos',
         'Melhorar a drenagem do solo',

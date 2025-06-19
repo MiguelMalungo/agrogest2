@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
             {/* Logo and connection status on the left */}
             <div className="flex items-center gap-4">
               <img 
-                src="/logo.png" 
+                src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="AgroGest" 
                 className="h-10 w-auto object-contain relative z-50"
               />

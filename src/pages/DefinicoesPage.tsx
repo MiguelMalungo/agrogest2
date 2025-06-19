@@ -201,7 +201,7 @@ export const DefinicoesPage: React.FC = () => {
           <div className="absolute inset-0 bg-black/50" onClick={() => setShowAbout(false)} />
           <Card variant="overlay" className="relative max-w-md w-full max-h-96 overflow-y-auto text-black">
             <div className="text-center mb-4">
-              <img src="/logo.png" alt="AgroGest" className="w-16 h-16 mx-auto mb-4 rounded-full" />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="AgroGest" className="w-16 h-16 mx-auto mb-4 rounded-full" />
               <h2 className="text-xl font-bold">AgroGest PWA</h2>
               <p className="text-green-100">Versão 1.0.0 (MVP)</p>
             </div>
