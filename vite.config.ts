@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // Base URL for GitHub Pages
 const isProd = process.env.NODE_ENV === 'production';
-const base = process.env.VITE_BASE_URL || (isProd ? '/agrogest2/' : '/')
+const base = isProd ? '/agrogest2/' : '/'
 
 export default defineConfig({
   base,

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { useAppStore } from '@/stores/useAppStore'
 import { useInitialData } from '@/hooks/useInitialData'
 import { useSyncData } from '@/hooks/useSyncData'
