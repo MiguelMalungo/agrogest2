@@ -88,8 +88,8 @@ export const DashboardPage: React.FC = () => {
     <div className="space-y-6">
       {/* Seletor de período */}
       <Card className="text-black" variant="overlay">
-        <div className="flex items-center justify-between mb-4 text-black">
-          <h2 className="text-lg font-semibold">Evolução</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-semibold text-black">Evolução</h2>
           <div className="flex gap-2">
             {periods.map(period => (
               <button
@@ -97,8 +97,8 @@ export const DashboardPage: React.FC = () => {
                 onClick={() => setSelectedPeriod(period.value as any)}
                 className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
                   selectedPeriod === period.value
-                    ? 'bg-white/20 text-white'
-                    : 'text-green-100 hover:bg-white/10'
+                    ? 'bg-green-600 text-white'
+                    : 'text-black hover:bg-gray-200'
                 }`}
               >
                 {period.label}
@@ -106,7 +106,7 @@ export const DashboardPage: React.FC = () => {
             ))}
           </div>
         </div>
-        <p className="text-sm text-green-100 text-black">
+        <p className="text-sm text-black">
           Dados dos últimos {periods.find(p => p.value === selectedPeriod)?.label}
         </p>
       </Card>
@@ -216,18 +216,19 @@ export const DashboardPage: React.FC = () => {
           
           <div className="space-y-3 text-black">
             {inventoryAlerts.lowStockItems.length > 0 && (
-              <div className="bg-red-500/20 rounded-lg p-3">
-                <h4 className="font-medium text-red-200 mb-2">
+              <div className="bg-red-500/20 rounded-lg p-4 border-l-4 border-red-500">
+                <h4 className="font-semibold text-black mb-2">
+                  <AlertTriangle className="w-4 h-4 inline mr-1 text-red-600" />
                   Stock Baixo ({inventoryAlerts.lowStockItems.length} itens)
                 </h4>
-                <div className="space-y-1">
+                <div className="space-y-1.5">
                   {inventoryAlerts.lowStockItems.slice(0, 3).map(item => (
-                    <div key={item.id} className="text-sm text-red-100">
-                      {item.nome}: {item.quantidade} {item.unidade}
+                    <div key={item.id} className="text-sm text-black">
+                      • {item.nome}: {item.quantidade} {item.unidade}
                     </div>
                   ))}
                   {inventoryAlerts.lowStockItems.length > 3 && (
-                    <div className="text-sm text-red-200">
+                    <div className="text-sm text-black font-medium">
                       ... e mais {inventoryAlerts.lowStockItems.length - 3} itens
                     </div>
                   )}

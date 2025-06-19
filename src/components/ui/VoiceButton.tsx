@@ -125,10 +125,10 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({ className }) => {
   return (
     <Button
       onClick={isListening || isProcessing ? undefined : startListening}
-      className={`fixed bottom-20 right-4 z-50 rounded-full w-14 h-14 shadow-md flex items-center justify-center ${
+      className={`fixed bottom-20 right-4 z-50 rounded-full w-14 h-14 shadow-md flex items-center justify-center transition-colors group ${
         isListening ? 'bg-red-500 hover:bg-red-600' : 
         isProcessing ? 'bg-orange-500 hover:bg-orange-600' : 
-        'bg-[#F5A926] hover:bg-orange-500'
+        'bg-[#F5A926] hover:bg-white hover:text-black border-2 border-[#F5A926]'
       } ${className}`}
       aria-label="Adicionar por voz"
     >
@@ -139,7 +139,10 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({ className }) => {
       ) : isProcessing ? (
         <Loader2 className="h-6 w-6 text-white animate-spin" />
       ) : (
-        <Mic className="h-6 w-6 text-white" />
+        <>
+          <Mic className="h-6 w-6 text-black group-hover:hidden" />
+          <Mic className="h-6 w-6 text-white hidden group-hover:block" />
+        </>
       )}
     </Button>
   );

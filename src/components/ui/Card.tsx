@@ -17,9 +17,9 @@ export const Card: React.FC<CardProps> = ({
   const baseClasses = 'rounded-xl border transition-all duration-200'
   
   const variants = {
-    default: 'bg-white/70 backdrop-blur-sm border-gray-200 shadow-lg text-black',
-    overlay: 'bg-white/70 backdrop-blur-md border-gray-200 shadow-xl text-black',
-    kpi: 'bg-white/70 backdrop-blur-lg border-gray-200 shadow-2xl text-black'
+    default: 'bg-white/70 backdrop-blur-sm border-gray-200 shadow-lg text-black dark:text-black',
+    overlay: 'bg-white/70 backdrop-blur-md border-gray-200 shadow-xl text-black dark:text-black',
+    kpi: 'bg-white/70 backdrop-blur-lg border-gray-200 shadow-2xl text-black dark:text-black'
   }
   
   const sizes = {
