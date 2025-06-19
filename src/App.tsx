@@ -60,19 +60,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="*" element={
-          <AppLayout>
-            <Routes>
-              <Route path="/hoje" element={<HojePage />} />
-              <Route path="/atividades" element={<AtividadesPage />} />
-              <Route path="/inventario" element={<InventarioPage />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/definicoes" element={<DefinicoesPage />} />
-            </Routes>
-            <VoiceButton />
-            <Toaster />
-          </AppLayout>
-        } />
+        <Route element={<AppLayout />}>
+          <Route path="/hoje" element={<HojePage />} />
+          <Route path="/atividades" element={<AtividadesPage />} />
+          <Route path="/inventario" element={<InventarioPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/definicoes" element={<DefinicoesPage />} />
+        </Route>
       </Routes>
     </Router>
   )
