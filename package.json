@@ -1,5 +1,6 @@
 {
   "name": "react_repo",
+  "homepage": "https://miguelmalungo.github.io/agrogest2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
