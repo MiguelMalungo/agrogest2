@@ -3,13 +3,15 @@ import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { useAppStore } from '@/stores/useAppStore'
 import { useInitialData } from '@/hooks/useInitialData'
 import { useSyncData } from '@/hooks/useSyncData'
-import AppLayout from '@/components/layout/AppLayout'
-import HojePage from '@/pages/HojePage'
+import { AppLayout } from '@/components/layout/AppLayout'
 import LandingPage from '@/pages/LandingPage'
-import AtividadesPage from '@/pages/AtividadesPage'
-import InventarioPage from '@/pages/InventarioPage'
-import DashboardPage from '@/pages/DashboardPage'
-import DefinicoesPage from '@/pages/DefinicoesPage'
+import { HojePage } from '@/pages/HojePage'
+import { AtividadesPage } from '@/pages/AtividadesPage'
+import { InventarioPage } from '@/pages/InventarioPage'
+import { DashboardPage } from '@/pages/DashboardPage'
+import { DefinicoesPage } from '@/pages/DefinicoesPage'
+import CamposPage from '@/pages/CamposPage'
+import FieldFormPage from '@/pages/FieldFormPage'
 import { VoiceButton } from '@/components/ui/VoiceButton'
 
 import { initDB } from '@/services/indexedDB'
@@ -66,6 +68,9 @@ function App() {
           <Route path="/inventario" element={<InventarioPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/definicoes" element={<DefinicoesPage />} />
+          <Route path="/campos" element={<CamposPage />} />
+          <Route path="/campos/novo" element={<FieldFormPage />} />
+          <Route path="/campos/editar/:id" element={<FieldFormPage />} />
         </Route>
       </Routes>
     </Router>

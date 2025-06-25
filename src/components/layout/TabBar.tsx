@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 import { TabItem, TabRoute } from '@/types'
-import { Home, ClipboardList, Package, BarChart3, Settings } from 'lucide-react'
+import { Home, ClipboardList, Package, BarChart3, Settings, Crop } from 'lucide-react'
 
 const tabItems: TabItem[] = [
   {
@@ -22,6 +22,12 @@ const tabItems: TabItem[] = [
     label: 'Inventário',
     icon: <Package size={20} />,
     path: '/inventario'
+  },
+  {
+    route: 'campos',
+    label: 'Campos',
+    icon: <Crop size={20} />,
+    path: '/campos'
   },
   {
     route: 'dashboard',

@@ -46,10 +46,12 @@ export const AppLayout: React.FC = () => {
         >
           <Bot className="h-7 w-7 text-white" />
         </button>
-        {/* Botões flutuantes para voz e câmera */}
+        {/* Botão de voz */}
+        <div className="fixed bottom-4 right-4 z-50">
+          <VoiceButton />
+        </div>
+        
         {/* Sistema de notificações toast */}
-        {/* These are now always present on app pages */}
-        <VoiceButton />
         <Toaster />
       </div>
     </div>

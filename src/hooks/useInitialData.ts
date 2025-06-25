@@ -2,11 +2,14 @@ import { useEffect } from 'react'
 import { useTaskStore } from '@/stores/useTaskStore'
 import { useInventoryStore } from '@/stores/useInventoryStore'
 import { useAppStore } from '@/stores/useAppStore'
+import { useFieldStore } from '@/stores/useFieldStore'
+import { CreateFieldDTO } from '@/types/field'
 
 export const useInitialData = () => {
   const { tasks, addTask } = useTaskStore()
   const { items, addItem } = useInventoryStore()
   const { user, setUser } = useAppStore()
+  const { fields, addField } = useFieldStore()
 
   useEffect(() => {
     // Configurar utilizador exemplo se não existir
@@ -146,5 +149,48 @@ export const useInitialData = () => {
 
       sampleItems.forEach(item => addItem(item))
     }
-  }, [tasks.length, items.length, user, addTask, addItem, setUser])
+  
+    // Adicionar campos de exemplo se não existirem
+    if (fields.length === 0) {
+      const sampleFields: CreateFieldDTO[] = [
+        {
+          nome: 'Campo A',
+          descricao: 'Campo de milho',
+          tipo: 'campo_aberto',
+          area: 2.5,
+          tipoSolo: 'argiloso',
+          capacidadeIrrigacao: 'Gotejamento',
+          coordenadas: '38.7071, -9.1355',
+          observacoes: 'Solo fértil com boa drenagem',
+          userId: 'user-1',
+          ativo: true
+        },
+        {
+          nome: 'Estufa 1',
+          descricao: 'Estufa de tomate',
+          tipo: 'estufa',
+          area: 0.2,
+          tipoSolo: 'humoso',
+          capacidadeIrrigacao: 'Aspersão',
+          observacoes: 'Controle de temperatura e humidade',
+          userId: 'user-1',
+          ativo: true
+        },
+        {
+          nome: 'Campo B',
+          descricao: 'Vinha antiga',
+          tipo: 'vinha',
+          area: 1.8,
+          tipoSolo: 'arenoso',
+          capacidadeIrrigacao: 'Gotejamento',
+          coordenadas: '38.7080, -9.1360',
+          observacoes: 'Vinhas com mais de 20 anos',
+          userId: 'user-1',
+          ativo: true
+        }
+      ]
+
+      sampleFields.forEach(field => addField(field))
+    }
+  }, [tasks.length, items.length, fields.length, user, addTask, addItem, addField, setUser])
 }

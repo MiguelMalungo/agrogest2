@@ -134,15 +134,12 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({ className }) => {
     >
       {isListening ? (
         <div className="animate-pulse">
-          <Mic className="h-6 w-6 text-white" />
+          <Mic className="h-6 w-6 text-black" />
         </div>
       ) : isProcessing ? (
-        <Loader2 className="h-6 w-6 text-white animate-spin" />
+        <Loader2 className="h-6 w-6 text-black animate-spin" />
       ) : (
-        <>
-          <Mic className="h-6 w-6 text-black group-hover:hidden" />
-          <Mic className="h-6 w-6 text-white hidden group-hover:block" />
-        </>
+        <Mic className="h-6 w-6 text-black" />
       )}
     </Button>
   );

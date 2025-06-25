@@ -3,7 +3,7 @@ import { useInventoryStore } from '@/stores/useInventoryStore'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
-import { AlertTriangle, Search, Box, Sprout, FlaskConical, ShowerHead, Fuel } from 'lucide-react'
+import { Search, Plus, AlertTriangle, Box, Sprout, FlaskConical, ShowerHead, Fuel, LayoutGrid, Shield } from 'lucide-react'
 import { InventoryItem, ItemCategory } from '@/types'
 
 export const InventarioPage: React.FC = () => {
@@ -43,13 +43,14 @@ export const InventarioPage: React.FC = () => {
   const lowStockItems = getLowStockItems()
   const totalValue = getTotalValue()
   
-  const categories = [
+  const categories = useMemo(() => [
     { value: 'todas', label: 'Todas', icon: <Box className="w-5 h-5" /> },
     { value: 'sementes', label: 'Sementes', icon: <Sprout className="w-5 h-5" /> },
     { value: 'fertilizantes', label: 'Fertilizantes', icon: <FlaskConical className="w-5 h-5" /> },
+    { value: 'defensivos', label: 'Defensivos', icon: <Shield className="w-5 h-5" /> },
     { value: 'pesticidas', label: 'Pesticidas', icon: <ShowerHead className="w-5 h-5" /> },
     { value: 'combustivel', label: 'Combustível', icon: <Fuel className="w-5 h-5" /> }
-  ]
+  ], [])
   
   const categoryStats = useMemo(() => {
     return categories.slice(1).map(cat => ({
@@ -58,7 +59,7 @@ export const InventarioPage: React.FC = () => {
       value: getItemsByCategory(cat.value as ItemCategory)
         .reduce((sum, item) => sum + (item.quantidade * item.precoUnitario), 0)
     }))
-  }, [items, getItemsByCategory])
+  }, [getItemsByCategory, categories])
 
   const handleStockAdjustment = (item: InventoryItem, type: 'add' | 'remove') => {
     const quantidade = parseInt(prompt(`Quantidade a ${type === 'add' ? 'adicionar' : 'remover'}:`) || '0')

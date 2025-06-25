@@ -3,7 +3,7 @@ import { TaskCard } from './TaskCard';
 
 // Simulação do store Zustand para o Storybook
 import { useTaskStore } from '../../stores/useTaskStore';
-// @ts-ignore - Ignorando erro de tipagem para mock do Zustand
+// @ts-expect-error - Ignorando erro de tipagem para mock do Zustand
 useTaskStore.getState = () => ({
   updateTaskStatus: (id, status) => {
     console.log(`Tarefa ${id} atualizada para ${status} (mock)`);

@@ -66,8 +66,8 @@ export interface Campo {
   userId: string
 }
 
-// Alias para compatibilidade com os serviços
-export interface Field extends Campo {}
+// Alias para compatibilidade com os tipos de campo
+export type Field = Campo
 
 // Tipos para reconhecimento de voz e imagem
 export interface VoiceCommand {
@@ -113,7 +113,7 @@ export interface AppState {
 }
 
 // Tipos para navegação
-export type TabRoute = 'hoje' | 'atividades' | 'inventario' | 'dashboard' | 'definicoes'
+export type TabRoute = 'hoje' | 'atividades' | 'inventario' | 'dashboard' | 'definicoes' | 'campos'
 
 export interface TabItem {
   route: TabRoute

@@ -3,7 +3,7 @@ import { VoiceButton } from './VoiceButton';
 import { useTaskStore } from '../../stores/useTaskStore';
 
 // Mock do store Zustand para o Storybook
-// @ts-ignore - Ignorando erro de tipagem para mock do Zustand
+// @ts-expect-error - Ignorando erro de tipagem para mock do Zustand
 useTaskStore.getState = () => ({
   tasks: [],
   addTask: (task) => {
